@@ -1,0 +1,43 @@
+{
+	"name" : "zendslug/zendslug",
+	"description" : "Slug in ZF2",
+	"type" : "zf2-module",
+	"authors" : [{
+			"name" : "Vincenzo Provenza",
+			"email" : "info@ilovecode.it",
+			"homepage" : "http://ilovecode.it/",
+			"role" : "Developer"
+		}
+	],
+	"keywords" : [
+		"zf2 module",
+		"zend slug",
+		"slug"
+	],
+	"homepage" : "https://github.com/vikey89/ZendSlug",
+	"license" : [
+		"BSD-3-Clause"
+	],
+	"require" : {
+		"php" : ">=5.3.3",
+		"zendframework/zendframework" : "2.*"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"ZendSlug" : "src"
+		},
+		"classmap" : [
+			"./Module.php"
+		]
+	},
+	"minimum-stability" : "beta",
+	"support" : {
+		"email" : "info@ilovecode.it"
+	},
+	"repositories" : [{
+			"name" : "ZendSlug",
+			"type" : "git",
+			"url" : "https://github.com/vikey89/ZendSlug.git"
+		}
+	]
+}
