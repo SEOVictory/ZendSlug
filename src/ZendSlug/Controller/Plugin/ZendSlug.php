@@ -64,11 +64,17 @@ class ZendSlug extends AbstractPlugin
 		return trim($string);
 	}
 
-	public function create($data = array())
+	protected function _create($data)
     {
         $replace = isset($data['separator']) && $data['separator'] != '' ? $data['separator'] : null;
         $separator = $this->_checkReplacement($replace);
         $this->_checkTitle($data['title']);
         return $this->_url($data['title'], $separator);
+    }
+
+    public function create($data = array())
+    {
+        $slug = $this->_create($data);
+        echo $slug;
     }
 }
