@@ -45,28 +45,29 @@ class ZendSlug extends AbstractPlugin
     }
 
     protected function _url($string, $separator)
-	{
-		$q_separator = preg_quote($separator, '#');
-		$code = array(
-			'&.+?;'			        => '',
-			'[^a-z0-9 _-]'	        => '',
-			'\s+'			        => $separator,
-			'('.$q_separator.')+'	=> $separator
-		);
-
-		$string = strip_tags($string);
-		foreach ($code as $key => $val)
-		{
-			$string = preg_replace('#'.$key.'#i', $val, $string);
-		}
-
-		$string = strtolower($string);
-		return trim($string);
-	}
-
-	protected function _create($data)
     {
-        $replace = isset($data['separator']) && $data['separator'] != '' ? $data['separator'] : null;
+    $q_separator = preg_quote($separator, '#');
+    $code = array(
+      '&.+?;'               => '',
+      '[^a-z0-9 _-]'          => '',
+      '\s+'               => $separator,
+      '('.$q_separator.')+'   => $separator
+    );
+
+    $string = strip_tags($string);
+    foreach ($code as $key => $val)
+    {
+      $string = preg_replace('#'.$key.'#i', $val, $string);
+    }
+
+    $string = strtolower($string);
+    return trim($string);
+    }
+
+    protected function _create($data)
+    {
+        $replace = isset($data['separator']) &&
+          $data['separator'] != '' ? $data['separator'] : null;
         $separator = $this->_checkReplacement($replace);
         $this->_checkTitle($data['title']);
         return $this->_url($data['title'], $separator);
