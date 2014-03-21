@@ -48,11 +48,11 @@ class ZendSlug extends AbstractPlugin
   {
     $q_separator = preg_quote($separator, '#');
     $code = array(
-      '&.+?;'               => '',
-      '[^a-z0-9 _-]'          => '',
-      '\s+'               => $separator,
-      '('.$q_separator.')+'   => $separator
-                  );
+      '&.+?;' => '',
+      '[^a-z0-9 _-]' => '',
+      '\s+' => $separator,
+      '('.$q_separator.')+' => $separator
+    );
 
     $string = strip_tags($string);
     foreach ($code as $key => $val)
@@ -76,6 +76,6 @@ class ZendSlug extends AbstractPlugin
   public function create($data = array())
   {
     $slug = $this->_create($data);
-    echo $slug;
+    return $slug;
   }
 }
