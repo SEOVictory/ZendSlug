@@ -14,6 +14,8 @@ use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 
 class ZendSlug extends AbstractPlugin
 {
+  use Zend\ServiceManager\ServiceLocatorAwareTrait;
+
   private $_separator;
 
   public function getSeparator ()

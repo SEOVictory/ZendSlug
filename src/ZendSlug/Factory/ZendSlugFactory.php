@@ -12,8 +12,11 @@ class ZendSlugFactory implements FactoryInterface
         $allServices = $servicelocator->getServiceLocator();
         $config = $allServices->get('ServiceManager')->get('Configuration');
 
-        return new ZendSlug(array(
+        $zs = new ZendSlug(array(
             'separator' => $config['zendslug']['separator']
         ));
+        $zs->setServiceLocator($servicelocator);
+
+        return $zs;
     }
 }
